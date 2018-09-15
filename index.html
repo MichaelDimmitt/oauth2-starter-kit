@@ -11,17 +11,30 @@
       api = mu.Api({
           clientId: MEETUP_CLIENT_ID
           , onMember: function(member, token) {
+              console.log('member',member, 'token',token)
               $("#connect").hide(); $("#disconnect").show();
-              $.getJSON(MEETUP_API_EVENTS_URL + token +
-                        "&member_id=self&fields=short_link&page=10&callback=?", function(evts) {
-                  var el = $("#events"), buff = [];
-                  $.map(evts.results, function(e) {
-                      buff.push('<li>' + e.name.link(e.short_link) + '</li>');
-                  });
-                  el.append(buff.join(''));
+
+              $.post( "ajax/test.html", function( data ) {
+                  $( ".result" ).html( data );
               });
-              $("#member").html(
-                  "Hey " + member.name.link(member.link) + " | <a href='#' id='disconnect'>Logout</a>");
+
+
+              // $.getJSON(MEETUP_API_EVENTS_URL + token +
+              //     "&member_id=self&fields=short_link&page=10&callback=?", function(evts) {
+              //     console.log(evts)
+              //     var el = $("#events"), buff = [];
+              //     console.log('el', el)
+              //     $.map(evts.results, function(e) {
+              //         buff.push('<li>' + e.name.link(e.short_link) + '</li>');
+              //     });
+              //     console.log('el2', el)
+
+              //     el.append(buff.join(''));
+              // });
+
+
+
+              $("#member").html( "Hey " + member.name.link(member.link) + " | <a href='#' id='disconnect'>Logout</a>");
           }
       });
 
