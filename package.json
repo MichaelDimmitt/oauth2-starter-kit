@@ -1,0 +1,15 @@
+{
+  "name": "meetup-oauth2",
+  "version": "1.0.0",
+  "description": "Prior to doing this, you'll need to get your Meetup Consumer Key at: https://secure.meetup.com/meetup_api/oauth_consumers/ As well, you'll need to test this on a server that resolves to the \"Redirect URI\" specified on your configured OAuth Consumer",
+  "main": "jquery.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
